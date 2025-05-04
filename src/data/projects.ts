@@ -187,6 +187,9 @@ export const allProjects: Project[] = [
   },
 ];
 
-// Filter projects by type and rename exported variables
-export const features = allProjects.filter(project => project.type === 'app');
-export const usefulTools = allProjects.filter(project => project.type === 'tool');
+// Helper function for alphabetical sorting by title
+const sortByTitle = (a: Project, b: Project) => a.title.localeCompare(b.title);
+
+// Filter projects by type, sort alphabetically, and rename exported variables
+export const features = allProjects.filter(project => project.type === 'app').sort(sortByTitle);
+export const usefulTools = allProjects.filter(project => project.type === 'tool').sort(sortByTitle);
