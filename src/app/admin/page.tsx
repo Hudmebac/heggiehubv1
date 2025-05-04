@@ -82,9 +82,25 @@ export default function AdminPage() {
     try {
       // 1. Upload image to Firebase Storage
       const storageRef = ref(storage, `gallery/${Date.now()}_${imageFile.name}`);
-      // Note: For progress tracking, you'd use uploadBytesResumable, but for simplicity:
-      const snapshot = await uploadBytes(storageRef, imageFile);
-      setUploadProgress(100); // Simulate completion after upload
+      // Note: For real progress tracking, you'd use uploadBytesResumable, but for simplicity:
+      const uploadTask = uploadBytes(storageRef, imageFile);
+
+      // Simulate progress (since uploadBytes doesn't provide it directly)
+      // You could implement uploadBytesResumable for real progress
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 10;
+        if (progress <= 90) { // Don't go beyond 90 until upload is done
+             setUploadProgress(progress);
+        } else {
+             clearInterval(interval);
+        }
+      }, 200); // Update progress every 200ms
+
+
+      const snapshot = await uploadTask;
+      clearInterval(interval); // Clear interval once upload is complete
+      setUploadProgress(100); // Set to 100% on completion
       const downloadURL = await getDownloadURL(snapshot.ref);
 
       // 2. Add image metadata to Firestore
@@ -118,7 +134,8 @@ export default function AdminPage() {
       });
     } finally {
       setIsUploading(false);
-      setUploadProgress(0); // Reset progress after completion or failure
+      // Keep progress at 100 briefly for visual confirmation, then reset
+      setTimeout(() => setUploadProgress(0), 1500);
     }
   };
 
@@ -211,11 +228,11 @@ export default function AdminPage() {
             <Card>
                 <CardHeader>
                     <CardTitle>Other Content Management</CardTitle>
-                    <CardDescription>Add, edit, or delete apps and tools (functionality TBD).</CardDescription>
+                    <CardDescription>Add, edit, or delete features and tools (functionality TBD).</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <p className="text-center text-muted-foreground">
-                        (App/Tool management functionality to be implemented here)
+                        (Feature/Tool management functionality to be implemented here)
                     </p>
                 </CardContent>
             </Card>

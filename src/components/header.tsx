@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Lock, GalleryVerticalEnd, Sparkles, Wrench } from 'lucide-react'; // Added Sparkles, Wrench
+import { Github, Linkedin, Lock, GalleryVerticalEnd, Sparkles, Wrench } from 'lucide-react'; // Added GalleryVerticalEnd
 
 export function Header() {
   return (

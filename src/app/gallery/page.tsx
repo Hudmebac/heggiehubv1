@@ -23,10 +23,18 @@ export default function GalleryPage() {
       (querySnapshot) => {
         const fetchedImages: GalleryImage[] = [];
         querySnapshot.forEach((doc: DocumentData) => {
-          fetchedImages.push({
-            id: doc.id,
-            ...doc.data(),
-          } as GalleryImage); // Type assertion
+          // Ensure doc.data() includes uploadedAt before pushing
+          const data = doc.data();
+          if (data.uploadedAt) {
+             fetchedImages.push({
+                id: doc.id,
+                ...data,
+             } as GalleryImage); // Type assertion
+           } else {
+             // Handle cases where uploadedAt might be missing initially
+             // Or log a warning if needed
+             console.warn(`Document ${doc.id} missing uploadedAt timestamp.`);
+           }
         });
         setImages(fetchedImages);
         setLoading(false);

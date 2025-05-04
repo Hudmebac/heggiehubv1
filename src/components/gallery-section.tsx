@@ -31,10 +31,15 @@ export function GallerySection() {
       (querySnapshot) => {
         const fetchedImages: GalleryImage[] = [];
         querySnapshot.forEach((doc: DocumentData) => {
-          fetchedImages.push({
-            id: doc.id,
-            ...doc.data(),
-          } as GalleryImage);
+           const data = doc.data();
+            if (data.uploadedAt) { // Check if timestamp exists
+                fetchedImages.push({
+                    id: doc.id,
+                    ...data,
+                } as GalleryImage);
+            } else {
+                 console.warn(`Document ${doc.id} missing uploadedAt timestamp.`);
+            }
         });
         setImages(fetchedImages);
         setLoading(false);

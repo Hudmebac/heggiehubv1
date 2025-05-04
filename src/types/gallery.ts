@@ -4,5 +4,5 @@ export interface GalleryImage {
   id: string;
   imageUrl: string;
   description?: string;
-  uploadedAt: Timestamp;
+  uploadedAt: Timestamp; // Use Firebase Timestamp for sorting
 }
