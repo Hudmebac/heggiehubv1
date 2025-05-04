@@ -7,12 +7,22 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea'; // Import Textarea
+import { db, storage } from '@/lib/firebase'; // Import Firebase instances
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { Progress } from '@/components/ui/progress'; // Import Progress
 
-const ADMIN_PASSCODE = '100672'; // Store passcode securely in environment variables in a real app
+const ADMIN_PASSCODE = process.env.NEXT_PUBLIC_ADMIN_PASSCODE || '100672'; // Use env var
 
 export default function AdminPage() {
   const [passcode, setPasscode] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [description, setDescription] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0); // Add progress state
   const { toast } = useToast();
 
   const handleLogin = (event: React.FormEvent) => {
@@ -37,11 +47,81 @@ export default function AdminPage() {
   const handleLogout = () => {
      setIsAuthenticated(false);
      setPasscode('');
+     setImageFile(null);
+     setDescription('');
+     setIsUploading(false);
+     setUploadProgress(0);
       toast({
         title: 'Logged Out',
         description: 'You have been logged out.',
       });
   }
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setImageFile(event.target.files[0]);
+    } else {
+      setImageFile(null);
+    }
+  };
+
+  const handleImageUpload = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!imageFile) {
+      toast({ variant: 'destructive', title: 'Error', description: 'Please select an image file.' });
+      return;
+    }
+    if (!isAuthenticated) {
+       toast({ variant: 'destructive', title: 'Error', description: 'Authentication required.' });
+       return;
+    }
+
+    setIsUploading(true);
+    setUploadProgress(0); // Reset progress
+
+    try {
+      // 1. Upload image to Firebase Storage
+      const storageRef = ref(storage, `gallery/${Date.now()}_${imageFile.name}`);
+      // Note: For progress tracking, you'd use uploadBytesResumable, but for simplicity:
+      const snapshot = await uploadBytes(storageRef, imageFile);
+      setUploadProgress(100); // Simulate completion after upload
+      const downloadURL = await getDownloadURL(snapshot.ref);
+
+      // 2. Add image metadata to Firestore
+      await addDoc(collection(db, 'galleryImages'), {
+        imageUrl: downloadURL,
+        description: description || '', // Use empty string if description is not provided
+        uploadedAt: serverTimestamp(),
+      });
+
+      toast({
+        title: 'Success',
+        description: 'Image uploaded successfully!',
+      });
+
+      // Reset form
+      setImageFile(null);
+      setDescription('');
+      // Find the file input and reset its value
+      const fileInput = document.getElementById('gallery-image-upload') as HTMLInputElement;
+      if (fileInput) {
+        fileInput.value = '';
+      }
+
+
+    } catch (error) {
+      console.error('Error uploading image:', error);
+      toast({
+        variant: 'destructive',
+        title: 'Upload Failed',
+        description: 'Could not upload image. Please try again.',
+      });
+    } finally {
+      setIsUploading(false);
+      setUploadProgress(0); // Reset progress after completion or failure
+    }
+  };
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -78,17 +158,65 @@ export default function AdminPage() {
                  <Button onClick={handleLogout} variant="outline">Logout</Button>
             </div>
             <p className="text-muted-foreground mb-4">Manage website content here.</p>
-            {/* Placeholder for content management UI */}
+
+            {/* Gallery Image Upload Card */}
+            <Card className="mb-8">
+                <CardHeader>
+                    <CardTitle>Upload Gallery Image</CardTitle>
+                    <CardDescription>Add a new image to the public gallery.</CardDescription>
+                </CardHeader>
+                 <form onSubmit={handleImageUpload}>
+                    <CardContent className="space-y-4">
+                        <div>
+                            <Label htmlFor="gallery-image-upload">Image File</Label>
+                            <Input
+                                id="gallery-image-upload"
+                                type="file"
+                                accept="image/*"
+                                onChange={handleFileChange}
+                                required
+                                disabled={isUploading}
+                                className="mt-1"
+                             />
+                        </div>
+                         <div>
+                            <Label htmlFor="gallery-image-description">Description (Optional)</Label>
+                            <Textarea
+                                id="gallery-image-description"
+                                placeholder="Enter a short description for the image"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                disabled={isUploading}
+                                className="mt-1"
+                             />
+                        </div>
+                         {isUploading && (
+                            <div className="space-y-1">
+                                <Label>Upload Progress</Label>
+                                <Progress value={uploadProgress} className="w-full" />
+                                <p className="text-sm text-muted-foreground text-center">Uploading...</p>
+                            </div>
+                        )}
+                    </CardContent>
+                    <CardFooter>
+                        <Button type="submit" disabled={isUploading || !imageFile} className="w-full">
+                         {isUploading ? 'Uploading...' : 'Upload Image'}
+                        </Button>
+                    </CardFooter>
+                </form>
+            </Card>
+
+
+             {/* Placeholder for other content management UI */}
             <Card>
                 <CardHeader>
-                    <CardTitle>Content Management</CardTitle>
-                    <CardDescription>Add, edit, or delete apps and tools.</CardDescription>
+                    <CardTitle>Other Content Management</CardTitle>
+                    <CardDescription>Add, edit, or delete apps and tools (functionality TBD).</CardDescription>
                 </CardHeader>
                 <CardContent>
                     <p className="text-center text-muted-foreground">
-                        (Content management functionality to be implemented here)
+                        (App/Tool management functionality to be implemented here)
                     </p>
-                     {/* Example: Add forms or tables to manage data */}
                 </CardContent>
             </Card>
 
