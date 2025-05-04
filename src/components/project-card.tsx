@@ -1,9 +1,8 @@
-import Image from 'next/image';
 import type { Project } from '@/types/project';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Link as LinkIcon, Info } from 'lucide-react'; // Added Info icon
+import { ExternalLink, Github, Link as LinkIcon, Info, Code } from 'lucide-react'; // Added Code icon
 import {
   Dialog,
   DialogContent,
@@ -27,20 +26,13 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <Card key={project.title} className="group flex flex-col overflow-hidden shadow-md border border-border transition-all duration-300 ease-out hover:shadow-xl hover:border-accent hover:-translate-y-1 bg-card">
-      <div className="relative h-48 w-full overflow-hidden">
-        <Image
-          src={project.imageUrl}
-          alt={project.title}
-          fill={true}
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          style={{ objectFit: "cover" }}
-          data-ai-hint={project.imageHint}
-          className="transition-transform duration-300 group-hover:scale-105"
-        />
-        <div className="absolute inset-0 bg-black/10 dark:bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-      </div>
+      {/* Removed Image container */}
       <CardHeader className="pb-2">
-        <CardTitle>{project.title}</CardTitle>
+        <div className="flex items-center space-x-3 mb-2">
+             {/* Added default icon */}
+            <Code className="h-8 w-8 text-accent flex-shrink-0" />
+            <CardTitle className="flex-grow">{project.title}</CardTitle>
+        </div>
         <CardDescription>{project.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow pt-2 pb-4">
