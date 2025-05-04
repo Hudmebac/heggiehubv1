@@ -2,7 +2,7 @@ import type { Project } from '@/types/project';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Link as LinkIcon, Info, Code } from 'lucide-react'; // Added Code icon
+import { ExternalLink, Github, Link as LinkIcon, Info, Package } from 'lucide-react'; // Added Package as default icon
 import {
   Dialog,
   DialogContent,
@@ -22,15 +22,14 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const linkButtonText = project.type === 'tool' ? 'Visit Tool' : 'Live Demo';
   const linkButtonTitle = project.type === 'tool' ? 'Visit Tool Website' : 'View Live Demo';
-  const LinkButtonIcon = project.type === 'tool' ? LinkIcon : ExternalLink; // Use LinkIcon for tools
+  const LinkButtonIcon = project.type === 'tool' ? LinkIcon : ExternalLink;
+  const ProjectIcon = project.icon || Package; // Use assigned icon or default to Package
 
   return (
     <Card key={project.title} className="group flex flex-col overflow-hidden shadow-md border border-border transition-all duration-300 ease-out hover:shadow-xl hover:border-accent hover:-translate-y-1 bg-card">
-      {/* Removed Image container */}
       <CardHeader className="pb-2">
         <div className="flex items-center space-x-3 mb-2">
-             {/* Added default icon */}
-            <Code className="h-8 w-8 text-accent flex-shrink-0" />
+           <ProjectIcon className="h-8 w-8 text-accent flex-shrink-0" /> {/* Use dynamic icon */}
             <CardTitle className="flex-grow">{project.title}</CardTitle>
         </div>
         <CardDescription>{project.description}</CardDescription>
@@ -80,11 +79,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </Button>
         )}
         {project.liveUrl && (
-          // Use accent color for live/visit button
           <Button variant="default" size="sm" asChild className="bg-accent hover:bg-accent/90 text-accent-foreground dark:bg-accent dark:hover:bg-accent/90 dark:text-accent-foreground transition-colors group">
             <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" title={linkButtonTitle} className="group">
               {linkButtonText}
-              <LinkButtonIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" /> {/* Use dynamic icon and add hover effect */}
+              <LinkButtonIcon className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
         )}
