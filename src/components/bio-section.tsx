@@ -1,8 +1,10 @@
 // src/components/bio-section.tsx
 "use client";
 
-import { useState, useEffect } from 'react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { useState, useEffect, useCallback, useRef } from 'react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { ArrowRightCircle } from 'lucide-react'; // Import a suitable icon
 
 const descriptions = [
   "As a Technical Product Manager, I bridge the gap between complex technical challenges and user-centric product solutions. While I'm passionate about technology and enjoy exploring development with AI tools, my core focus is defining product strategy, prioritizing features, and collaborating with engineering teams to deliver value. This space showcases some of my explorations and experiments in that journey.",
@@ -20,27 +22,60 @@ const descriptions = [
   "Craig Heggie here. My digital self tried to get clever with this bio, but hit a snag! Let's just say I build things, fueled by coffee and the occasional existential crisis about code. The official story (summary)? I'm an experienced IT Professional with a passion for building innovative solutions. Sometimes they work, sometimes they teach valuable lessons. Stick around, it might get interesting (or at least compile)."
 ];
 
+const ROTATION_INTERVAL = 60000; // 60 seconds
+
 export function BioSection() {
   const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState<number | null>(null);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
+  const showNextDescription = useCallback((currentIndex: number | null) => {
+    let newIndex;
+    if (currentIndex === null) {
+      newIndex = Math.floor(Math.random() * descriptions.length);
+    } else {
+      newIndex = (currentIndex + 1) % descriptions.length; // Cycle to next
+    }
+    setCurrentDescriptionIndex(newIndex);
+  }, []);
+
+  // Function to start the interval timer
+  const startTimer = useCallback(() => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    intervalRef.current = setInterval(() => {
+      showNextDescription(currentDescriptionIndex);
+    }, ROTATION_INTERVAL);
+  }, [currentDescriptionIndex, showNextDescription]);
+
+  // Effect to set initial description and start the timer
   useEffect(() => {
-    // Set initial random description on client-side mount
-    setCurrentDescriptionIndex(Math.floor(Math.random() * descriptions.length));
-
-    // Set up interval to change description every 20 seconds
-    const intervalId = setInterval(() => {
-      setCurrentDescriptionIndex(prevIndex => {
-        let newIndex;
-        do {
-          newIndex = Math.floor(Math.random() * descriptions.length);
-        } while (newIndex === prevIndex); // Ensure the new index is different
-        return newIndex;
-      });
-    }, 20000); // 20 seconds
+    // Set initial random description only on client-side mount
+    if (currentDescriptionIndex === null) {
+       setCurrentDescriptionIndex(Math.floor(Math.random() * descriptions.length));
+    }
+    startTimer();
 
     // Clear interval on component unmount
-    return () => clearInterval(intervalId);
-  }, []);
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [startTimer]); // Rerun effect when startTimer changes (which depends on currentDescriptionIndex)
+
+
+  const handleNextClick = () => {
+    // Clear the existing interval
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    // Show the next description immediately
+    showNextDescription(currentDescriptionIndex);
+    // Restart the timer immediately after manual change
+    startTimer();
+  };
 
   const currentDescription = currentDescriptionIndex !== null ? descriptions[currentDescriptionIndex] : 'Loading description...';
 
@@ -49,20 +84,29 @@ export function BioSection() {
       <div className="container mx-auto">
         <Card className="shadow-lg border border-border transition-shadow duration-300 hover:shadow-xl">
           <CardHeader>
-            {/* Updated Header */}
             <CardTitle className="text-3xl mb-2">Welcome to HeggieHub</CardTitle>
-             {/* Updated Description */}
             <CardDescription>A little bit about the person behind the hub.</CardDescription>
           </CardHeader>
           <CardContent>
-            {/* Display rotating description */}
-            <p className="text-lg leading-relaxed min-h-[100px] transition-opacity duration-500 ease-in-out"> {/* Added min-height and transition */}
+            <p className="text-lg leading-relaxed min-h-[150px] transition-opacity duration-500 ease-in-out"> {/* Increased min-height for potentially longer text */}
               {currentDescription}
             </p>
           </CardContent>
-          {/* Removed CardFooter with the AI Enhance button */}
+          <CardFooter className="flex justify-end">
+             <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleNextClick}
+                title="Next Description"
+              >
+              <ArrowRightCircle className="h-6 w-6 text-accent" />
+              <span className="sr-only">Next Description</span>
+            </Button>
+          </CardFooter>
         </Card>
       </div>
     </section>
   );
 }
+
+    
