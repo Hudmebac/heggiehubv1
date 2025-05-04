@@ -25,6 +25,17 @@ import {
 // Define project data based on the blueprint
 export const allProjects: Project[] = [
   // Apps (now Features) from Blueprint
+    {
+    title: 'HeggieHub',
+    description: 'A hub for all things Heggie - projects, ideas, and tools.',
+    moreInfo: 'HeggieHub serves as a central collection point for my diverse projects, creative ideas, and useful tools. It\'s a digital showcase of my work and the tools I use, all in one place.',
+    imageUrl: 'https://picsum.photos/seed/heggiehub/600/400',
+    imageHint: 'heggiehub project showcase tools ideas',
+    tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase'],
+    liveUrl: 'https://heggiehub.netlify.app/',
+    type: 'app',
+    icon: Package,
+  },
   {
     title: 'Air Fry Tool',
     description: 'Find cooking times & temps for air fryer foods via photo, voice, or text.',
