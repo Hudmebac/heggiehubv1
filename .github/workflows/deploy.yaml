@@ -1,0 +1,50 @@
+
+name: Deploy to Netlify
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # Specify the Node.js version matching your project
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+        env:
+          # Pass necessary build-time environment variables here
+          # Example: If your build needs Firebase config
+          NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
+          NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+          NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+          NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+          NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
+          GOOGLE_GENAI_API_KEY: ${{ secrets.GOOGLE_GENAI_API_KEY }}
+          NEXT_PUBLIC_ADMIN_PASSCODE: ${{ secrets.NEXT_PUBLIC_ADMIN_PASSCODE }}
+
+
+      - name: Deploy to Netlify
+        uses: nwtgck/actions-netlify@v3 # Use a community action for Netlify deployment
+        with:
+          publish-dir: './.next' # Directory Next.js outputs the static build to
+          production-branch: main # Branch to deploy to production
+          # Required secrets for Netlify deployment
+          netlify-auth-token: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          netlify-site-id: ${{ secrets.NETLIFY_SITE_ID }} # Your Netlify Site ID
+        env:
+           NETLIFY_CMD: next build # Override default build command if needed
+           NETLIFY_BUILD_NODE_VERSION: 18 # Ensure Netlify uses the correct Node version
+
