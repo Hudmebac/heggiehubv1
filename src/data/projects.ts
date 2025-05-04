@@ -2,7 +2,7 @@ import type { Project } from '@/types/project';
 
 // Define project data based on the blueprint
 export const allProjects: Project[] = [
-  // Apps from Blueprint
+  // Apps (now Features) from Blueprint
   {
     title: 'Air Fry Tool',
     description: 'Find cooking times & temps for air fryer foods via photo, voice, or text.',
@@ -11,7 +11,7 @@ export const allProjects: Project[] = [
     imageHint: 'air fryer food cooking timer temperature',
     tags: ['Web App', 'Utility', 'Cooking', 'AI', 'Netlify'],
     liveUrl: 'https://airfry.netlify.app/',
-    type: 'app',
+    type: 'app', // Keep internal type as 'app'
   },
   {
     title: 'Airfryer Temp (First Try)',
@@ -73,28 +73,8 @@ export const allProjects: Project[] = [
     liveUrl: 'https://zenzac.netlify.app/',
     type: 'app',
   },
-    // Previous default apps - removing as blueprint lists specific ones.
-  // {
-  //   title: 'Project Phoenix',
-  //   description: 'A revolutionary web application built with Next.js and Tailwind CSS.',
-  //   imageUrl: 'https://picsum.photos/seed/phoenix/600/400',
-  //   imageHint: 'abstract technology code phoenix',
-  //   tags: ['Next.js', 'Tailwind CSS', 'TypeScript', 'AI'],
-  //   liveUrl: '#',
-  //   repoUrl: '#',
-  //   type: 'app',
-  // },
-  // {
-  //   title: 'Data Dashboard',
-  //   description: 'Visualizing complex data sets with interactive charts.',
-  //   imageUrl: 'https://picsum.photos/seed/dashboard/600/400',
-  //   imageHint: 'data visualization chart graph dashboard',
-  //   tags: ['React', 'D3.js', 'Data Viz'],
-  //   liveUrl: '#',
-  //   type: 'app',
-  // },
 
-  // Tools from Blueprint
+  // Tools (now Useful Tools) from Blueprint
   {
     title: 'Gencraft',
     description: 'AI tool for generating creative content.',
@@ -195,27 +175,8 @@ export const allProjects: Project[] = [
     liveUrl: 'https://www.hedra.com',
     type: 'tool',
   },
-  // Previous default tools - removing as blueprint lists specific ones.
-  // {
-  //   title: 'Tool Titan',
-  //   description: 'A suite of developer tools designed to boost productivity.',
-  //   imageUrl: 'https://picsum.photos/seed/titan/600/400',
-  //   imageHint: 'tools workshop code development productivity',
-  //   tags: ['React', 'Node.js', 'Utility', 'Developer Tool'],
-  //   repoUrl: '#',
-  //   type: 'tool',
-  // },
-  // {
-  //   title: 'Component Castle',
-  //   description: 'A reusable component library for modern web interfaces.',
-  //   imageUrl: 'https://picsum.photos/seed/castle/600/400',
-  //   imageHint: 'design system components ui library',
-  //   tags: ['React', 'Storybook', 'Design System', 'UI'],
-  //   liveUrl: '#',
-  //   type: 'tool',
-  // },
 ];
 
-// Filter projects by type
-export const apps = allProjects.filter(project => project.type === 'app');
-export const tools = allProjects.filter(project => project.type === 'tool');
+// Filter projects by type and rename exported variables
+export const features = allProjects.filter(project => project.type === 'app');
+export const usefulTools = allProjects.filter(project => project.type === 'tool');
