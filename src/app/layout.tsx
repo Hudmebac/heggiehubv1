@@ -27,6 +27,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
+        
+        
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
         suppressHydrationWarning // Add this to mitigate extension-related hydration issues
       >
@@ -39,6 +41,10 @@ export default function RootLayout({
           {children}
           <Toaster />
         </ThemeProvider>
+        
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
       </body>
     </html>
   );
