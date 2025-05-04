@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
 import { Button } from '@/components/ui/button';
-import { Github, Linkedin, Lock, GalleryVerticalEnd } from 'lucide-react'; // Added GalleryVerticalEnd
+import { Github, Linkedin, Lock, GalleryVerticalEnd, Sparkles, Wrench } from 'lucide-react'; // Added Sparkles, Wrench
 
 export function Header() {
   return (
@@ -11,6 +11,20 @@ export function Header() {
            <h1 className="text-2xl font-bold uppercase tracking-wider">HeggieHub</h1>
         </Link>
         <nav className="flex items-center space-x-1 sm:space-x-2"> {/* Reduced spacing on small screens */}
+            {/* Features Link */}
+           <Button variant="ghost" size="icon" asChild>
+             <Link href="/#features" title="View Features">
+                <Sparkles className="h-5 w-5" />
+                <span className="sr-only">Features</span>
+            </Link>
+          </Button>
+            {/* Useful Tools Link */}
+           <Button variant="ghost" size="icon" asChild>
+             <Link href="/#useful-tools" title="View Useful Tools">
+                <Wrench className="h-5 w-5" />
+                <span className="sr-only">Useful Tools</span>
+            </Link>
+          </Button>
             {/* Gallery Link */}
            <Button variant="ghost" size="icon" asChild>
              <Link href="/gallery" title="View Gallery">

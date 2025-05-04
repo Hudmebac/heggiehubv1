@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Linkedin } from 'lucide-react';
+import { Github, Linkedin, Sparkles, Wrench } from 'lucide-react'; // Added Sparkles, Wrench
 import { Button } from '@/components/ui/button';
 
 export function Footer() {
@@ -12,6 +12,21 @@ export function Footer() {
           © {currentYear} Craig Heggie. All rights reserved.
         </p>
         <div className="flex space-x-4">
+           {/* Features Link */}
+           <Button variant="ghost" size="icon" asChild>
+             <Link href="/#features" title="View Features">
+                <Sparkles className="h-5 w-5" />
+                <span className="sr-only">Features</span>
+            </Link>
+          </Button>
+            {/* Useful Tools Link */}
+           <Button variant="ghost" size="icon" asChild>
+             <Link href="/#useful-tools" title="View Useful Tools">
+                <Wrench className="h-5 w-5" />
+                <span className="sr-only">Useful Tools</span>
+            </Link>
+          </Button>
+          {/* Social Links */}
           <Button variant="ghost" size="icon" asChild>
             <a href="https://www.linkedin.com/in/craig-heggie-a51b4340/" target="_blank" rel="noopener noreferrer" title="LinkedIn Profile">
               <Linkedin className="h-5 w-5" />
@@ -24,13 +39,7 @@ export function Footer() {
               <span className="sr-only">GitHub</span>
             </a>
           </Button>
-          {/* Add Admin link here if needed in footer, but blueprint specified header only */}
-          {/* <Button variant="ghost" size="icon" asChild>
-             <Link href="/admin" title="Admin Login">
-                <Lock className="h-5 w-5" />
-                <span className="sr-only">Admin</span>
-            </Link>
-          </Button> */}
+          {/* Admin link is intentionally omitted from the footer per user request */}
         </div>
       </div>
     </footer>
