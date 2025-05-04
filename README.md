@@ -28,7 +28,7 @@ HeggieHub serves as a central place to:
 - **Project Showcase**: Separate sections for "Features" (personal apps) and "Useful Tools" (external web tools), displayed in alphabetical order using responsive cards with icons, descriptions, tags, and links.
 - **Gallery**: Displays images uploaded via the admin section. Includes a dedicated gallery page and a preview section on the homepage.
 - **Jukebox**: Placeholder section for future music integration.
-- **Admin Section**: Accessible via `/admin` with a passcode (`100672` by default, configurable via `NEXT_PUBLIC_ADMIN_PASSCODE`). Allows authenticated users to upload images to the gallery.
+- **Admin Section**: Accessible via `/admin` with a passcode (`******` by default, configurable via `NEXT_PUBLIC_ADMIN_PASSCODE`). Allows authenticated users to upload images to the gallery.
 
 ## Getting Started
 
@@ -93,7 +93,7 @@ NEXT_PUBLIC_ADMIN_PASSCODE=YOUR_ADMIN_PASSCODE
 ## Admin Access
 
 - Navigate to `/admin`.
-- Enter the passcode defined in `NEXT_PUBLIC_ADMIN_PASSCODE` (or the default `100672`).
+- Enter the passcode defined in `NEXT_PUBLIC_ADMIN_PASSCODE` 
 - Once authenticated, you can manage gallery images.
 
 ## Project Structure
