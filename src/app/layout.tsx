@@ -28,6 +28,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        suppressHydrationWarning // Add this to mitigate extension-related hydration issues
       >
         <ThemeProvider
           attribute="class"
