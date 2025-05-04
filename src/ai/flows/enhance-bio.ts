@@ -15,7 +15,7 @@ import {z} from 'genkit';
 const EnhanceBioInputSchema = z.object({
   linkedinProfileId: z
     .string()
-    .describe('The LinkedIn profile ID of the person whose bio is to be enhanced.'),
+    .describe('The LinkedIn profile ID of the person whose bio is to be enhanced (e.g., craig-heggie-a51b4340).'), // Updated description
 });
 export type EnhanceBioInput = z.infer<typeof EnhanceBioInputSchema>;
 
@@ -44,11 +44,11 @@ const enhanceBioPrompt = ai.definePrompt({
   },
   prompt: `You are a professional bio enhancer specializing in injecting wit and humor into LinkedIn profiles.
 
-  Your task is to take the original bio and rewrite it to be more engaging and humorous while maintaining a professional tone.
+  Your task is to take the original bio and rewrite it to be more engaging and humorous while maintaining a professional tone. Be witty and funny.
 
   Original Bio: {{{originalBio}}}
 
-  Enhanced Bio:`, 
+  Enhanced Bio:`,
 });
 
 const enhanceBioFlow = ai.defineFlow<
@@ -60,9 +60,12 @@ const enhanceBioFlow = ai.defineFlow<
   outputSchema: EnhanceBioOutputSchema,
 },
 async input => {
-  const linkedInProfile = await getLinkedInProfile(input.linkedinProfileId);
+  // Use the provided profileId or default to Craig Heggie's
+  const profileIdToUse = input.linkedinProfileId || 'craig-heggie-a51b4340';
+  const linkedInProfile = await getLinkedInProfile(profileIdToUse);
   const {output} = await enhanceBioPrompt({
     originalBio: linkedInProfile.summary,
   });
   return output!;
 });
+

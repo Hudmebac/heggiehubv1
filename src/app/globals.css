@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
 @layer base {
   :root {
     --background: 0 0% 98%; /* #FAFAFA */
@@ -16,15 +20,15 @@
     --secondary-foreground: 0 0% 98%; /* White text on orange button */
     --muted: 0 0% 95%; /* Lighter gray */
     --muted-foreground: 0 0% 45%; /* Darker gray */
-    --accent: 287 30% 67%; /* #BE95C4 */
-    --accent-foreground: 0 0% 7%; /* #121212 */
+    --accent: 39 100% 50%; /* #FFA500 - Electric Orange */
+    --accent-foreground: 0 0% 7%; /* #121212 - Dark text on accent */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 90%; /* Light gray border */
     --input: 0 0% 90%; /* Light gray input */
-    --ring: 287 30% 67%; /* Accent color for ring */
+    --ring: 39 100% 50%; /* Accent color for ring */
     --chart-1: 26 100% 50%; /* Secondary color */
-    --chart-2: 287 30% 67%; /* Accent color */
+    --chart-2: 39 100% 50%; /* Accent color */
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
@@ -33,10 +37,10 @@
     --sidebar-foreground: 0 0% 7%;
     --sidebar-primary: 0 0% 7%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 287 30% 67%;
+    --sidebar-accent: 39 100% 50%;
     --sidebar-accent-foreground: 0 0% 7%;
     --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 287 30% 67%;
+    --sidebar-ring: 39 100% 50%;
   }
   .dark {
     --background: 0 0% 7%; /* #121212 */
@@ -51,15 +55,15 @@
     --secondary-foreground: 0 0% 98%; /* White text on burnt orange button */
     --muted: 0 0% 15%; /* Darker gray */
     --muted-foreground: 0 0% 65%; /* Lighter gray */
-    --accent: 287 30% 67%; /* #BE95C4 */
-    --accent-foreground: 0 0% 7%; /* #121212 */
+    --accent: 39 100% 50%; /* #FFA500 - Electric Orange */
+    --accent-foreground: 0 0% 7%; /* #121212 - Dark text on accent */
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 20%; /* Dark gray border */
     --input: 0 0% 20%; /* Dark gray input */
-    --ring: 287 30% 67%; /* Accent color for ring */
+    --ring: 39 100% 50%; /* Accent color for ring */
     --chart-1: 19 100% 45%; /* Secondary color */
-    --chart-2: 287 30% 67%; /* Accent color */
+    --chart-2: 39 100% 50%; /* Accent color */
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
@@ -67,10 +71,10 @@
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 98%;
     --sidebar-primary-foreground: 0 0% 7%;
-    --sidebar-accent: 287 30% 67%;
+    --sidebar-accent: 39 100% 50%;
     --sidebar-accent-foreground: 0 0% 7%;
     --sidebar-border: 0 0% 20%;
-    --sidebar-ring: 287 30% 67%;
+    --sidebar-ring: 39 100% 50%;
   }
 }
 
@@ -79,8 +83,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans; /* Apply sans-serif font */
-    font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif; /* Ensure Geist Sans is primary */
+    @apply bg-background text-foreground font-sans; /* Use font-sans defined in tailwind.config */
+    font-family: 'Inter', var(--font-geist-sans), Arial, Helvetica, sans-serif; /* Set Inter as primary font */
   }
   h1, h2, h3, h4, h5, h6 {
     @apply uppercase tracking-wider font-semibold; /* Applied wider tracking */

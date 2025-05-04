@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Heggie',
+  title: 'HeggieHub', // Updated title
   description: "Craig Heggie's Personal Website",
 };
 

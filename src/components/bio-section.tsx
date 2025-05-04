@@ -18,19 +18,19 @@ export function BioSection() {
     setLoading(true);
     setError(null);
     try {
-      // Replace with actual LinkedIn Profile ID if available
-      const result = await enhanceBio({ linkedinProfileId: 'craig-heggie-123' });
+      // Use Craig Heggie's LinkedIn profile ID
+      const result = await enhanceBio({ linkedinProfileId: 'craig-heggie-a51b4340' });
       setBio(result.enhancedBio);
     } catch (err) {
       console.error("Error enhancing bio:", err);
-      setError('Failed to enhance bio. Please try again.');
+      setError('Failed to enhance bio. Using fallback.');
       toast({
         variant: "destructive",
         title: "Error",
         description: "Could not fetch or enhance the bio.",
       })
       // Fallback bio
-      setBio("Experienced Software Engineer with a passion for innovation... and occasionally breaking things just to see how they work. Let's build something amazing (or at least amusing).");
+      setBio("Experienced Software Engineer with a knack for turning coffee into code and complexity into clarity. Known for building robust applications and occasionally telling dad jokes that make servers weep. Seeking to innovate, collaborate, and maybe find the world's best debugger (hint: it's probably more coffee). Let's build something amazing (or at least amusing).");
     } finally {
       setLoading(false);
     }
@@ -57,7 +57,10 @@ export function BioSection() {
                 <Skeleton className="h-4 w-3/4" />
               </div>
             ) : error ? (
-              <p className="text-destructive">{error}</p>
+               <div>
+                 <p className="text-destructive mb-4">{error}</p>
+                 <p className="text-lg leading-relaxed">{bio}</p> {/* Show fallback bio on error */}
+               </div>
             ) : (
               <p className="text-lg leading-relaxed">{bio}</p>
             )}
