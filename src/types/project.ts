@@ -7,4 +7,5 @@ export interface Project {
   liveUrl?: string;
   repoUrl?: string;
   type: 'app' | 'tool'; // Added type field
+  moreInfo?: string; // Optional field for more detailed info
 }

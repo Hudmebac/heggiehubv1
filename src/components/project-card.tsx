@@ -3,7 +3,18 @@ import type { Project } from '@/types/project';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, Link as LinkIcon } from 'lucide-react'; // Added LinkIcon
+import { ExternalLink, Github, Link as LinkIcon, Info } from 'lucide-react'; // Added Info icon
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose
+} from "@/components/ui/dialog"
+import { ScrollArea } from '@/components/ui/scroll-area';
+
 
 interface ProjectCardProps {
   project: Project;
@@ -39,7 +50,35 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
       </CardContent>
-      <CardFooter className="flex justify-end gap-2 pt-0">
+      <CardFooter className="flex justify-end items-center gap-2 pt-0">
+        {project.moreInfo && (
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="outline" size="sm" title="More Info" className="transition-colors hover:bg-accent/10 hover:border-accent hover:text-accent-foreground">
+                <Info className="h-4 w-4" />
+                <span className="sr-only">More Info</span>
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-[425px] md:max-w-[600px]">
+              <DialogHeader>
+                <DialogTitle>{project.title} - More Info</DialogTitle>
+                <DialogDescription>Detailed information about {project.title}.</DialogDescription>
+              </DialogHeader>
+              <ScrollArea className="max-h-[60vh] p-1">
+                 <div className="prose dark:prose-invert max-w-none text-sm">
+                    {project.moreInfo.split('\n').map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                    ))}
+                </div>
+               </ScrollArea>
+               <DialogClose asChild>
+                <Button type="button" variant="secondary" className="mt-4">
+                    Close
+                </Button>
+              </DialogClose>
+            </DialogContent>
+          </Dialog>
+        )}
         {project.repoUrl && (
           <Button variant="outline" size="sm" asChild className="transition-colors hover:bg-accent/10 hover:border-accent hover:text-accent-foreground">
             <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" title="View Source Code">
