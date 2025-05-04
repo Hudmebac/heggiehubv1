@@ -54,7 +54,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID=YOUR_APP_ID
 # Get this from Google AI Studio: https://aistudio.google.com/app/apikey
 GOOGLE_GENAI_API_KEY=YOUR_GOOGLE_AI_API_KEY
 
-# Admin Passcode (Optional - defaults to 100672 if not set)
+# Admin Passcode (Optional - defaults to ****** if not set)
 NEXT_PUBLIC_ADMIN_PASSCODE=YOUR_ADMIN_PASSCODE
 ```
 
