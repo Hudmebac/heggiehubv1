@@ -37,6 +37,25 @@ export const allProjects: Project[] = [
     icon: Package,
   },
   {
+    title: 'Daily Stand Up Quote',
+    description: 'A web application designed to display random quotes specifically related to Tech, featuring a simple interface and a button to generate new quotes.',
+    moreInfo: `Simple little app created experimenting again with new ideas
+Core Function: It's almost certainly a quote generator web application.
+Content Focus: Quote displayer. This isn't a general quote site; it's focused on sayings from this particular genre (Tech).
+User Interaction: The page displays one quote at a time. Users can interact with it via a button (Next) to load a new, randomly selected quote from its database.
+Interface: Expect a simple, minimalist design. The focus will be on clearly presenting the quote text and affirmation . 
+Purpose: It  serves as a personal project, for more learning
+Technology: Being hosted on netlify.app, it's built using front-end web technologies (HTML, CSS, JavaScript) and deployed via the Netlify platform.`,
+
+
+    imageUrl: 'https://picsum.photos/seed/heggiequote/600/400',
+    imageHint: 'quotes heggie inspirational',
+    tags: ['Web Page', 'Quotes', 'Personal'],
+    liveUrl: 'https://heggquote.netlify.app/',
+    type: 'app',
+    icon: ClipboardList,
+  },
+  {
     title: 'Air Fry Tool',
     description: 'Find cooking times & temps for air fryer foods via photo, voice, or text.',
     moreInfo: 'The Air Fryer App is a simple web application designed to help users find cooking times and temperatures for various food items using an air fryer. It provides a searchable list with temperature (°C/°F toggle), time, and notes. Users can snap a photo, use voice input, upload an image, or type to get info, plus suggested food/drink pairings. Includes a "Suggest a Food" feature.',
