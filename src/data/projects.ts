@@ -256,6 +256,30 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     icon: Camera,
   },
   // Note: Duplicate Unsplash entry in blueprint omitted.
+  {
+    title: 'Google AI Studio',
+    description: 'A tool to help users create generative AI applications.',
+    imageUrl: 'https://picsum.photos/seed/googleaistudio/600/400',
+    imageHint: 'ai application generative tool developer',
+    tags: ['AI', 'Generative AI', 'Development', 'Tool'],
+    liveUrl: 'https://aistudio.google.com/',
+    type: 'tool',
+    icon: BrainCircuit,
+  },
+  {
+    title: 'Copilot',
+    description: 'An AI companion for coding and everyday tasks.',
+    imageUrl: 'https://picsum.photos/seed/copilottool/600/400',
+    imageHint: 'ai coding everyday tasks assistant',
+    tags: ['AI', 'Coding', 'Assistant', 'Productivity'],
+    liveUrl: 'https://copilot.microsoft.com/',
+    type: 'tool',
+    icon: Code,
+  },
+
+
+
+
 ];
 
 // Helper function for alphabetical sorting by title
