@@ -19,7 +19,7 @@ import {
   Wrench,
   ExternalLink,
 } from 'lucide-react';
-import { features, usefulTools } from '@/data/projects'; // Import project data
+import { projects, usefulTools } from '@/data/projects'; // Import project data
 
 export function Header() {
   return (
@@ -42,7 +42,7 @@ export function Header() {
              <DropdownMenuContent align="end">
                <DropdownMenuLabel>Features</DropdownMenuLabel>
                <DropdownMenuSeparator />
-               {features.map((feature) => (
+               {projects.map((feature) => (
                  <DropdownMenuItem key={feature.title} asChild>
                    <a
                      href={feature.liveUrl}

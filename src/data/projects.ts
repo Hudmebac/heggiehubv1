@@ -1,5 +1,5 @@
 import type { Project } from '@/types/project';
-import {
+import { 
   ChefHat,
   FlaskConical,
   Sparkles,
@@ -18,12 +18,15 @@ import {
   BrainCircuit,
   Cloud,
   Music,
+  Globe,
   Camera,
-  Package, // Default/fallback icon
-} from 'lucide-react';
+  Package,
+  Globe as GlobeIcon, // Default/fallback icon
+  Sun,
+} from 'lucide-react'
 
 // Define project data based on the blueprint
-export const allProjects: Project[] = [
+export const allTheProjects: Project[] = [
   // Apps (now Features) from Blueprint
     {
     title: 'HeggieHub',
@@ -33,26 +36,18 @@ export const allProjects: Project[] = [
     imageHint: 'heggiehub project showcase tools ideas',
     tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase'],
     liveUrl: 'https://heggiehub.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: Package,
   },
   {
     title: 'Daily Stand Up Quote',
     description: 'A web application designed to display random quotes specifically related to Tech, featuring a simple interface and a button to generate new quotes.',
-    moreInfo: `Simple little app created experimenting again with new ideas
-Core Function: It's almost certainly a quote generator web application.
-Content Focus: Quote displayer. This isn't a general quote site; it's focused on sayings from this particular genre (Tech).
-User Interaction: The page displays one quote at a time. Users can interact with it via a button (Next) to load a new, randomly selected quote from its database.
-Interface: Expect a simple, minimalist design. The focus will be on clearly presenting the quote text and affirmation . 
-Purpose: It  serves as a personal project, for more learning
-Technology: Being hosted on netlify.app, it's built using front-end web technologies (HTML, CSS, JavaScript) and deployed via the Netlify platform.`,
-
-
+    moreInfo: `Simple little app created experimenting again with new ideas\nCore Function: It's almost certainly a quote generator web application.\nContent Focus: Quote displayer. This isn't a general quote site; it's focused on sayings from this particular genre (Tech).\nUser Interaction: The page displays one quote at a time. Users can interact with it via a button (Next) to load a new, randomly selected quote from its database.\nInterface: Expect a simple, minimalist design. The focus will be on clearly presenting the quote text and affirmation . \nPurpose: It  serves as a personal project, for more learning\nTechnology: Being hosted on netlify.app, it's built using front-end web technologies (HTML, CSS, JavaScript) and deployed via the Netlify platform.`,
     imageUrl: 'https://picsum.photos/seed/heggiequote/600/400',
     imageHint: 'quotes heggie inspirational',
     tags: ['Web Page', 'Quotes', 'Personal'],
     liveUrl: 'https://heggquote.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: ClipboardList,
   },
   {
@@ -63,7 +58,7 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'air fryer food cooking timer temperature',
     tags: ['Web App', 'Utility', 'Cooking', 'AI', 'Netlify'],
     liveUrl: 'https://airfry.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: ChefHat,
   },
   {
@@ -74,7 +69,7 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'air fryer prototype development cooking',
     tags: ['Web App', 'Prototype', 'Cooking', 'Netlify'],
     liveUrl: 'https://airfryertemp.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: FlaskConical,
   },
   {
@@ -85,7 +80,7 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'story mythical creature camel fantasy kids',
     tags: ['Web App', 'Storytelling', 'AI', 'Kids', 'Netlify', 'Personal'],
     liveUrl: 'https://emberglow.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: Sparkles,
   },
   {
@@ -96,8 +91,19 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'birthday greeting celebration fun experiment',
     tags: ['Web Page', 'Birthday', 'Experiment', 'Netlify'],
     liveUrl: 'https://emberglow.netlify.app/happybirthday.html',
-    type: 'app',
+    type: 'feature',
     icon: PartyPopper,
+  },
+    {
+    title: 'HelioHeggie',
+    description: 'Solar Energy Management Application',
+    moreInfo: 'This application is designed to monitor and optimize solar energy usage. It integrates real-time weather data to provide accurate energy production forecasts and offers users personalized energy usage advisories to maximize efficiency and savings.',
+    imageUrl: 'https://picsum.photos/seed/helioproject/600/400',
+    imageHint: 'Solar Panel Usage',
+    tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase', 'API'],
+    liveUrl: 'https://helioheggie.netlify.app/',
+    type: 'feature',
+    icon: Sun,
   },
     {
     title: 'Spring Health Hub',
@@ -107,7 +113,7 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'health energy spring presentation ai',
     tags: ['Web App', 'AI', 'Health', 'Experiment', 'Netlify'],
     liveUrl: 'https://debbieheggiespring.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: HeartPulse,
   },
   {
@@ -118,7 +124,7 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'agile story points planning poker tool',
     tags: ['Web App', 'Utility', 'Agile', 'Planning', 'Netlify'],
     liveUrl: 'https://skyzer.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: ClipboardList,
   },
   {
@@ -129,12 +135,10 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     imageHint: 'kids wellness calming tool activities behaviour',
     tags: ['Web App', 'Kids', 'Wellness', 'Tool', 'Netlify', 'Personal'],
     liveUrl: 'https://zenzac.netlify.app/',
-    type: 'app',
+    type: 'feature',
     icon: Smile,
   },
-
-  // Tools (now Useful Tools) from Blueprint
-   {
+  {
     title: 'AppsGeyser',
     description: 'Platform for creating Android apps without coding.',
     imageUrl: 'https://picsum.photos/seed/appsgeysertool/600/400',
@@ -143,7 +147,7 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     liveUrl: 'https://appsgeyser.com',
     type: 'tool',
     icon: Smartphone,
-  },
+  }, 
    {
     title: 'CopyCoder.ai',
     description: 'AI tool for generating code snippets.',
@@ -277,14 +281,24 @@ Technology: Being hosted on netlify.app, it's built using front-end web technolo
     icon: Code,
   },
 
-
-
-
 ];
+
 
 // Helper function for alphabetical sorting by title
 const sortByTitle = (a: Project, b: Project) => a.title.localeCompare(b.title);
 
-// Filter projects by type, sort alphabetically, and rename exported variables
-export const features = allProjects.filter(project => project.type === 'app').sort(sortByTitle);
-export const usefulTools = allProjects.filter(project => project.type === 'tool').sort(sortByTitle);
+// Filter projects by type, sort alphabetically by title
+export const projects = allTheProjects.filter(project => project.type === 'app').sort(sortByTitle);
+export const usefulTools = allTheProjects.filter(project => project.type === 'tool').sort(sortByTitle);
+export const features = allTheProjects.filter(project => project.type === 'feature').sort(sortByTitle);
+
+export {
+  projects,
+  usefulTools,
+  features
+}
+
+
+
+
+
