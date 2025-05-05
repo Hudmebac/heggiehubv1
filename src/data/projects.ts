@@ -292,11 +292,6 @@ export const projects = allTheProjects.filter(project => project.type === 'app')
 export const usefulTools = allTheProjects.filter(project => project.type === 'tool').sort(sortByTitle);
 export const features = allTheProjects.filter(project => project.type === 'feature').sort(sortByTitle);
 
-export {
-  projects,
-  usefulTools,
-  features
-}
 
 
 
