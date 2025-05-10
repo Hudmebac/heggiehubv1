@@ -1,3 +1,4 @@
+
 import type { Project } from '@/types/project';
 import { 
   ChefHat,
@@ -23,14 +24,15 @@ import {
   Package,
   Globe as GlobeIcon, // Default/fallback icon
   Sun,
+  Database, // Added for Firebase
 } from 'lucide-react'
 
 // Define project data based on the blueprint
 export const allTheProjects: Project[] = [
   // Apps (now Features) from Blueprint
     {
-    title: 'HeggieHub',
-    description: 'A hub for all things Heggie - projects, ideas, and tools.',
+    title: 'HeggieHubV1', // Updated title
+    description: 'My First Bash at building a portfolio page.', // Updated description
     moreInfo: 'HeggieHub serves as a central collection point for my diverse projects, creative ideas, and useful tools. It\'s a digital showcase of my work and the tools I use, all in one place.',
     imageUrl: 'https://picsum.photos/seed/heggiehub/600/400',
     imageHint: 'heggiehub project showcase tools ideas',
@@ -280,6 +282,16 @@ export const allTheProjects: Project[] = [
     type: 'tool',
     icon: Code,
   },
+  {
+    title: 'Firebase',
+    description: 'Firebase is a Backend-as-a-Service (BaaS) platform developed by Google, offering a wide range of tools and services for building and managing mobile and web apps.',
+    imageUrl: 'https://picsum.photos/seed/firebasetool/600/400',
+    imageHint: 'firebase backend baas google cloud database',
+    tags: ['Backend', 'BaaS', 'Google', 'Database', 'Cloud'],
+    liveUrl: 'https://firebase.google.com/',
+    type: 'tool',
+    icon: Database, // Or Cloud icon
+  },
 
 ];
 
@@ -291,6 +303,7 @@ const sortByTitle = (a: Project, b: Project) => a.title.localeCompare(b.title);
 export const projects = allTheProjects.filter(project => project.type === 'app').sort(sortByTitle);
 export const usefulTools = allTheProjects.filter(project => project.type === 'tool').sort(sortByTitle);
 export const features = allTheProjects.filter(project => project.type === 'feature').sort(sortByTitle);
+
 
 
 
