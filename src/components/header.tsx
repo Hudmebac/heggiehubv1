@@ -28,7 +28,7 @@ export function Header() {
         <Link href="/" className="flex items-center space-x-2 mr-auto group">
            {/* Replaced Hub icon with Network */}
            <Network className="h-6 w-6 text-accent transition-transform duration-300 group-hover:rotate-[-15deg]" />
-           <h1 className="text-2xl font-bold uppercase tracking-wider">HeggieHubV1.0</h1>
+           <h1 className="text-2xl font-bold uppercase tracking-wider">HeggieHub</h1>
         </Link>
         <nav className="flex items-center space-x-1 sm:space-x-2">
             {/* Features Dropdown */}

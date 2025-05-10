@@ -24,7 +24,8 @@ import {
   Package,
   Sun,
   Database, 
-  Bird, // Replaced Duck with Bird
+  Bird, 
+  SunMoon, // Added for HelioHeggie (new)
 } from 'lucide-react'
 
 // Define project data based on the blueprint
@@ -72,7 +73,7 @@ export const allTheProjects: Project[] = [
     tags: ['Web App', 'Fun', 'Humor', 'Netlify', 'Story'],
     liveUrl: 'https://cmeduck.netlify.app/',
     type: 'feature',
-    icon: Bird, // Changed from Duck to Bird
+    icon: Bird, 
   },
   {
     title: 'Daily Stand Up Quote',
@@ -107,9 +108,20 @@ export const allTheProjects: Project[] = [
     type: 'feature',
     icon: PartyPopper,
   },
-  {
+   {
     title: 'HelioHeggie',
-    description: 'Solar Energy Management Application',
+    description: 'Solar and Battery Tool, Auto Weather, Smart Charging and Advisory, Tariff and costs.',
+    moreInfo: 'This application leverages AI to optimize solar energy capture and battery usage. It integrates real-time weather forecasts, energy tariffs, and user consumption patterns to provide smart charging schedules and energy-saving recommendations. The goal is to maximize self-consumption of solar power and minimize energy costs.',
+    imageUrl: 'https://picsum.photos/seed/helioheggiex/600/400',
+    imageHint: 'solar battery smart',
+    tags: ['Web App', 'Energy', 'Solar', 'Battery', 'AI', 'Optimization', 'Netlify', 'Smart Home'],
+    liveUrl: 'https://helioheggiex.netlify.app/',
+    type: 'feature',
+    icon: SunMoon, // Using SunMoon for combined solar/battery concept
+  },
+  {
+    title: 'HelioHeggie-manual',
+    description: 'This was first attemp but only with Manual Settings',
     moreInfo: 'This application is designed to monitor and optimize solar energy usage. It integrates real-time weather data to provide accurate energy production forecasts and offers users personalized energy usage advisories to maximize efficiency and savings.',
     imageUrl: 'https://picsum.photos/seed/helioheggie/600/400',
     imageHint: 'solar energy',
@@ -321,3 +333,4 @@ export const usefulTools = allTheProjects.filter(project => project.type === 'to
 
 // Deprecated 'apps', use 'features'
 // export const apps = allTheProjects.filter(project => project.type === 'app').sort(sortByTitle);
+
