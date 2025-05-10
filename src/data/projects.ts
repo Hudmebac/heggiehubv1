@@ -108,8 +108,8 @@ export const allTheProjects: Project[] = [
     icon: PartyPopper,
   },
   {
-    title: 'HelioHeggie',
-    description: 'Solar Energy Management Application',
+    title: 'HelioHeggie-manual',
+    description: 'This was first attemp but only with Manual Settings',
     moreInfo: 'This application is designed to monitor and optimize solar energy usage. It integrates real-time weather data to provide accurate energy production forecasts and offers users personalized energy usage advisories to maximize efficiency and savings.',
     imageUrl: 'https://picsum.photos/seed/helioheggie/600/400',
     imageHint: 'solar energy',
