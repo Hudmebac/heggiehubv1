@@ -25,24 +25,14 @@ import {
   Sun,
   Database, 
   Bird, 
-  SunMoon, // Added for HelioHeggie (new)
+  SunMoon,
+  MapPin, // Added for HegGeo
 } from 'lucide-react'
 
 // Define project data based on the blueprint
 export const allTheProjects: Project[] = [
   // Features from Blueprint
     {
-    title: 'HeggieHubV1',
-    description: 'My First Bash at building a portfolio page.',
-    moreInfo: 'HeggieHubV1 serves as a central collection point for my diverse projects, creative ideas, and useful tools. It\'s a digital showcase of my work and the tools I use, all in one place.',
-    imageUrl: 'https://picsum.photos/seed/heggiehubv1/600/400',
-    imageHint: 'portfolio showcase',
-    tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase', 'Next.js', 'React', 'TypeScript'],
-    liveUrl: 'https://heggiehub.netlify.app/', // Assuming this is the main site, adjust if it's a separate project
-    type: 'feature',
-    icon: Package,
-  },
-  {
     title: 'Air Fry Tool',
     description: 'Find cooking times & temps for air fryer foods via photo, voice, or text.',
     moreInfo: 'The Air Fryer App is a simple web application designed to help users find cooking times and temperatures for various food items using an air fryer. It provides a searchable list with temperature (°C/°F toggle), time, and notes. Users can snap a photo, use voice input, upload an image, or type to get info, plus suggested food/drink pairings. Includes a "Suggest a Food" feature.',
@@ -107,6 +97,28 @@ export const allTheProjects: Project[] = [
     liveUrl: 'https://emberglow.netlify.app/happybirthday.html',
     type: 'feature',
     icon: PartyPopper,
+  },
+   {
+    title: 'HegGeo',
+    description: 'Geo Location Tool, Drop a Gea and Send, Journey time Tracker and Alarm.',
+    moreInfo: 'A tool for managing and sharing geo-locations, tracking journey times, and setting location-based alarms. Users can drop a pin on a map, send their location, track travel progress, and set alarms based on arrival or proximity to a destination.',
+    imageUrl: 'https://picsum.photos/seed/heggeo/600/400',
+    imageHint: 'geolocation map',
+    tags: ['Web App', 'Geolocation', 'Tracking', 'Utility', 'Netlify', 'Mapping', 'Alarm'],
+    liveUrl: 'https://heggeo.netlify.app/',
+    type: 'feature',
+    icon: MapPin,
+  },
+  {
+    title: 'HeggieHubV1',
+    description: 'My First Bash at building a portfolio page.',
+    moreInfo: 'HeggieHubV1 serves as a central collection point for my diverse projects, creative ideas, and useful tools. It\'s a digital showcase of my work and the tools I use, all in one place.',
+    imageUrl: 'https://picsum.photos/seed/heggiehubv1/600/400',
+    imageHint: 'portfolio showcase',
+    tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase', 'Next.js', 'React', 'TypeScript'],
+    liveUrl: 'https://heggiehub.netlify.app/', // Assuming this is the main site, adjust if it's a separate project
+    type: 'feature',
+    icon: Package,
   },
    {
     title: 'HelioHeggie',
