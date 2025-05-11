@@ -100,7 +100,7 @@ export const allTheProjects: Project[] = [
   },
    {
     title: 'HegGeo',
-    description: 'Geo Location Tool, Drop a Gea and Send, Journey time Tracker and Alarm.',
+    description: 'Geo Location Tool, Drop a Geo and Send, Journey time Tracker and Alarm.',
     moreInfo: 'A tool for managing and sharing geo-locations, tracking journey times, and setting location-based alarms. Users can drop a pin on a map, send their location, track travel progress, and set alarms based on arrival or proximity to a destination.',
     imageUrl: 'https://picsum.photos/seed/heggeo/600/400',
     imageHint: 'geolocation map',
