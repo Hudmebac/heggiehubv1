@@ -27,6 +27,7 @@ import {
   Bird, 
   SunMoon,
   MapPin, // Added for HegGeo
+  Gem, // Added for HegArt
 } from 'lucide-react'
 
 // Define project data based on the blueprint
@@ -108,6 +109,17 @@ export const allTheProjects: Project[] = [
     liveUrl: 'https://heggeo.netlify.app/',
     type: 'feature',
     icon: MapPin,
+  },
+   {
+    title: 'HegArt',
+    description: 'Unleash your creativity with a symmetric and animated art tool.',
+    moreInfo: 'HegArt is an experimental web application designed to explore the creation of symmetric and animated artistic patterns. Users can interact with parameters to generate unique visual outputs. This project focuses on combining mathematical principles with creative expression.',
+    imageUrl: 'https://picsum.photos/seed/hegart/600/400',
+    imageHint: 'symmetric animated art',
+    tags: ['Web App', 'Art', 'Creative', 'Animation', 'Experiment', 'Netlify', 'Visuals'],
+    liveUrl: 'https://hegart.netlify.app/',
+    type: 'feature',
+    icon: Gem, // Using Gem for artistic/creative concept
   },
   {
     title: 'HeggieHubV1',
