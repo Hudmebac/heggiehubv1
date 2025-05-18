@@ -52,7 +52,7 @@ export const allTheProjects: Project[] = [
     imageHint: 'air fryer prototype',
     tags: ['Web App', 'Prototype', 'Cooking', 'Netlify', 'Experiment'],
     liveUrl: 'https://airfryertemp.netlify.app/',
-    type: 'feature',
+    type: 'feature', // Kept as feature, but will be filtered to play area
     icon: FlaskConical,
   },
   {
@@ -96,7 +96,7 @@ export const allTheProjects: Project[] = [
     imageHint: 'birthday greeting',
     tags: ['Web Page', 'Birthday', 'Experiment', 'Netlify', 'Fun'],
     liveUrl: 'https://emberglow.netlify.app/happybirthday.html',
-    type: 'feature',
+    type: 'feature', // Kept as feature, but will be filtered to play area
     icon: PartyPopper,
   },
    {
@@ -140,7 +140,7 @@ export const allTheProjects: Project[] = [
     imageHint: 'portfolio showcase',
     tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase', 'Next.js', 'React', 'TypeScript'],
     liveUrl: 'https://heggiehub.netlify.app/',
-    type: 'feature',
+    type: 'feature', // Kept as feature, but will be filtered to play area
     icon: Package,
   },
   {
@@ -162,7 +162,7 @@ export const allTheProjects: Project[] = [
     imageHint: 'solar energy',
     tags: ['Web App', 'Energy', 'Solar', 'API', 'Optimization', 'Netlify'],
     liveUrl: 'https://helioheggie.netlify.app/',
-    type: 'feature',
+    type: 'feature', // Kept as feature, but will be filtered to play area
     icon: Sun,
   },
   {
@@ -173,7 +173,7 @@ export const allTheProjects: Project[] = [
     imageHint: 'health presentation',
     tags: ['Web App', 'AI', 'Health', 'Experiment', 'Netlify', 'Presentation'],
     liveUrl: 'https://debbieheggiespring.netlify.app/',
-    type: 'feature',
+    type: 'feature', // Kept as feature, but will be filtered to play area
     icon: HeartPulse,
   },
   {
@@ -357,10 +357,24 @@ export const allTheProjects: Project[] = [
 // Helper function for alphabetical sorting by title
 const sortByTitle = (a: Project, b: Project) => a.title.localeCompare(b.title);
 
-// Filter projects by type, sort alphabetically by title
-export const features = allTheProjects.filter(project => project.type === 'feature').sort(sortByTitle);
+// Titles of projects to be moved to the "Play Area"
+const playAreaProjectTitles: string[] = [
+  "Airfryer Temp (First Try)",
+  "Happy Birthday",
+  "HeggieHubV1",
+  "HelioHeggie-manual",
+  "Spring Health Hub"
+];
+
+// Filter projects for Play Area
+export const playAreaFeatures = allTheProjects
+  .filter(project => project.type === 'feature' && playAreaProjectTitles.includes(project.title))
+  .sort(sortByTitle);
+
+// Filter main features, excluding those in Play Area
+export const features = allTheProjects
+  .filter(project => project.type === 'feature' && !playAreaProjectTitles.includes(project.title))
+  .sort(sortByTitle);
+
+// Filter useful tools
 export const usefulTools = allTheProjects.filter(project => project.type === 'tool').sort(sortByTitle);
-
-// Deprecated 'apps', use 'features'
-// export const apps = allTheProjects.filter(project => project.type === 'app').sort(sortByTitle);
-
