@@ -16,7 +16,7 @@ import {
   GitBranch,
   Eye,
   Shapes,
-  BrainCircuit,
+  BrainCircuit, // Used for Heggles
   Cloud,
   Music,
   Globe,
@@ -26,8 +26,8 @@ import {
   Database, 
   Bird, 
   SunMoon,
-  MapPin, // Added for HegGeo
-  Gem, // Added for HegArt
+  MapPin,
+  Gem,
 } from 'lucide-react'
 
 // Define project data based on the blueprint
@@ -37,7 +37,7 @@ export const allTheProjects: Project[] = [
     title: 'Air Fry Tool',
     description: 'Find cooking times & temps for air fryer foods via photo, voice, or text.',
     moreInfo: 'The Air Fryer App is a simple web application designed to help users find cooking times and temperatures for various food items using an air fryer. It provides a searchable list with temperature (°C/°F toggle), time, and notes. Users can snap a photo, use voice input, upload an image, or type to get info, plus suggested food/drink pairings. Includes a "Suggest a Food" feature.',
-    imageUrl: 'https://picsum.photos/seed/airfrytool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'air fryer food',
     tags: ['Web App', 'Utility', 'Cooking', 'AI', 'Netlify'],
     liveUrl: 'https://airfry.netlify.app/',
@@ -48,7 +48,7 @@ export const allTheProjects: Project[] = [
     title: 'Airfryer Temp (First Try)',
     description: 'Initial prototype for the Airfryer tool.',
     moreInfo: 'This was my first attempt at the Airfryer tool. I identified a problem and tried to build an app to fix it. Some great ideas identified; this was the prototype. Some fundamentals I didn\'t like and knew I could do better - tada airfry.netlify.app.',
-    imageUrl: 'https://picsum.photos/seed/airfryprototype/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'air fryer prototype',
     tags: ['Web App', 'Prototype', 'Cooking', 'Netlify', 'Experiment'],
     liveUrl: 'https://airfryertemp.netlify.app/',
@@ -59,7 +59,7 @@ export const allTheProjects: Project[] = [
     title: 'CME-Duck',
     description: 'A bit of fun - the world of the CME Duck as he navigates the complexities of modern technology, one quack at a time.',
     moreInfo: 'This project is a lighthearted exploration featuring the CME Duck. Follow his adventures and misadventures in the tech world. Purely for entertainment and a bit of quacky humor.',
-    imageUrl: 'https://picsum.photos/seed/cmeduck/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'duck tech',
     tags: ['Web App', 'Fun', 'Humor', 'Netlify', 'Story'],
     liveUrl: 'https://cmeduck.netlify.app/',
@@ -70,7 +70,7 @@ export const allTheProjects: Project[] = [
     title: 'Daily Stand Up Quote',
     description: 'A web application designed to display random quotes specifically related to Tech, featuring a simple interface and a button to generate new quotes.',
     moreInfo: `Simple little app created experimenting again with new ideas\nCore Function: It's almost certainly a quote generator web application.\nContent Focus: Quote displayer. This isn't a general quote site; it's focused on sayings from this particular genre (Tech).\nUser Interaction: The page displays one quote at a time. Users can interact with it via a button (Next) to load a new, randomly selected quote from its database.\nInterface: Expect a simple, minimalist design. The focus will be on clearly presenting the quote text and affirmation . \nPurpose: It  serves as a personal project, for more learning\nTechnology: Being hosted on netlify.app, it's built using front-end web technologies (HTML, CSS, JavaScript) and deployed via the Netlify platform.`,
-    imageUrl: 'https://picsum.photos/seed/techquotes/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'quotes tech',
     tags: ['Web Page', 'Quotes', 'Personal', 'Tech', 'Inspiration'],
     liveUrl: 'https://heggquote.netlify.app/',
@@ -81,7 +81,7 @@ export const allTheProjects: Project[] = [
     title: 'Emberglow',
     description: 'Ralph the Camel\'s journey transforming into Emberglow.',
     moreInfo: 'Built for my son Zac (8), based on his mythical creature school project. We used Co-Pilot and other AI tools for stories, songs, pictures, and videos. Includes Origins, Story, Photo Gallery, Elements knowledge, and Cool Music. "Hi there! I\'m Zac... It\'s been an amazing journey, and I can\'t wait for you to explore it with us!"',
-    imageUrl: 'https://picsum.photos/seed/emberglowproject/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'mythical creature kids',
     tags: ['Web App', 'Storytelling', 'AI', 'Kids', 'Netlify', 'Personal', 'Creative'],
     liveUrl: 'https://emberglow.netlify.app/',
@@ -92,7 +92,7 @@ export const allTheProjects: Project[] = [
     title: 'Happy Birthday',
     description: 'A quirky birthday greeting page built quickly.',
     moreInfo: 'Happy Birthday April :) An early experiment with No Code and Javascript. Built this before going to the party while my wife showered. Some quirky things in this :)',
-    imageUrl: 'https://picsum.photos/seed/birthdaygreeting/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'birthday greeting',
     tags: ['Web Page', 'Birthday', 'Experiment', 'Netlify', 'Fun'],
     liveUrl: 'https://emberglow.netlify.app/happybirthday.html',
@@ -100,54 +100,65 @@ export const allTheProjects: Project[] = [
     icon: PartyPopper,
   },
    {
+    title: 'HegArt',
+    description: 'Unleash your creativity with a symmetric and animated art tool.',
+    moreInfo: 'HegArt is an experimental web application designed to explore the creation of symmetric and animated artistic patterns. Users can interact with parameters to generate unique visual outputs. This project focuses on combining mathematical principles with creative expression.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'symmetric animated art',
+    tags: ['Web App', 'Art', 'Creative', 'Animation', 'Experiment', 'Netlify', 'Visuals'],
+    liveUrl: 'https://hegart.netlify.app/',
+    type: 'feature',
+    icon: Gem,
+  },
+  {
     title: 'HegGeo',
     description: 'Geo Location Tool, Drop a Geo and Send, Journey time Tracker and Alarm.',
     moreInfo: 'A tool for managing and sharing geo-locations, tracking journey times, and setting location-based alarms. Users can drop a pin on a map, send their location, track travel progress, and set alarms based on arrival or proximity to a destination.',
-    imageUrl: 'https://picsum.photos/seed/heggeo/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'geolocation map',
     tags: ['Web App', 'Geolocation', 'Tracking', 'Utility', 'Netlify', 'Mapping', 'Alarm'],
     liveUrl: 'https://heggeo.netlify.app/',
     type: 'feature',
     icon: MapPin,
   },
-   {
-    title: 'HegArt',
-    description: 'Unleash your creativity with a symmetric and animated art tool.',
-    moreInfo: 'HegArt is an experimental web application designed to explore the creation of symmetric and animated artistic patterns. Users can interact with parameters to generate unique visual outputs. This project focuses on combining mathematical principles with creative expression.',
-    imageUrl: 'https://picsum.photos/seed/hegart/600/400',
-    imageHint: 'symmetric animated art',
-    tags: ['Web App', 'Art', 'Creative', 'Animation', 'Experiment', 'Netlify', 'Visuals'],
-    liveUrl: 'https://hegart.netlify.app/',
+  {
+    title: 'Heggles',
+    description: 'Heggles helps you capture, organise, and recall your thoughts with the new improved Heggle brain.',
+    moreInfo: 'A personal knowledge management tool designed to capture, organize, and retrieve thoughts and ideas effectively. Leveraging AI to assist with tagging, summarizing, and connecting related notes.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'knowledge organization',
+    tags: ['Web App', 'Productivity', 'Notes', 'AI', 'Netlify', 'Organization'],
+    liveUrl: 'https://heggles.netlify.app/',
     type: 'feature',
-    icon: Gem, // Using Gem for artistic/creative concept
+    icon: BrainCircuit,
   },
   {
     title: 'HeggieHubV1',
     description: 'My First Bash at building a portfolio page.',
     moreInfo: 'HeggieHubV1 serves as a central collection point for my diverse projects, creative ideas, and useful tools. It\'s a digital showcase of my work and the tools I use, all in one place.',
-    imageUrl: 'https://picsum.photos/seed/heggiehubv1/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'portfolio showcase',
     tags: ['Web App', 'Portfolio', 'Tools', 'Personal', 'Showcase', 'Next.js', 'React', 'TypeScript'],
-    liveUrl: 'https://heggiehub.netlify.app/', // Assuming this is the main site, adjust if it's a separate project
+    liveUrl: 'https://heggiehub.netlify.app/',
     type: 'feature',
     icon: Package,
   },
-   {
+  {
     title: 'HelioHeggie',
     description: 'Solar and Battery Tool, Auto Weather, Smart Charging and Advisory, Tariff and costs.',
     moreInfo: 'This application leverages AI to optimize solar energy capture and battery usage. It integrates real-time weather forecasts, energy tariffs, and user consumption patterns to provide smart charging schedules and energy-saving recommendations. The goal is to maximize self-consumption of solar power and minimize energy costs.',
-    imageUrl: 'https://picsum.photos/seed/helioheggiex/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'solar battery smart',
     tags: ['Web App', 'Energy', 'Solar', 'Battery', 'AI', 'Optimization', 'Netlify', 'Smart Home'],
     liveUrl: 'https://helioheggiex.netlify.app/',
     type: 'feature',
-    icon: SunMoon, // Using SunMoon for combined solar/battery concept
+    icon: SunMoon,
   },
   {
     title: 'HelioHeggie-manual',
     description: 'This was first attemp but only with Manual Settings',
     moreInfo: 'This application is designed to monitor and optimize solar energy usage. It integrates real-time weather data to provide accurate energy production forecasts and offers users personalized energy usage advisories to maximize efficiency and savings.',
-    imageUrl: 'https://picsum.photos/seed/helioheggie/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'solar energy',
     tags: ['Web App', 'Energy', 'Solar', 'API', 'Optimization', 'Netlify'],
     liveUrl: 'https://helioheggie.netlify.app/',
@@ -158,7 +169,7 @@ export const allTheProjects: Project[] = [
     title: 'Spring Health Hub',
     description: 'AI-enhanced transformation of a PowerPoint presentation.',
     moreInfo: 'An attempt to use a work PowerPoint document and enhance it using AI. An early project. The subject was "Spring Health and Energy Resource Hub," a learning experience.',
-    imageUrl: 'https://picsum.photos/seed/healthhub/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'health presentation',
     tags: ['Web App', 'AI', 'Health', 'Experiment', 'Netlify', 'Presentation'],
     liveUrl: 'https://debbieheggiespring.netlify.app/',
@@ -169,7 +180,7 @@ export const allTheProjects: Project[] = [
     title: 'Story Skyzer',
     description: 'A simple tool to assist with story pointing and portfolio sizing.',
     moreInfo: 'Story Skyzer (Story Sizer). Further experimentation building something similar to planning poker, introducing Sky branding. Aimed to be useful for myself. Established cool functions but couldn\'t get multi-user sessions working as intended. May revisit later.',
-    imageUrl: 'https://picsum.photos/seed/storysizer/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'agile planning',
     tags: ['Web App', 'Utility', 'Agile', 'Planning', 'Netlify', 'Collaboration'],
     liveUrl: 'https://skyzer.netlify.app/',
@@ -180,7 +191,7 @@ export const allTheProjects: Project[] = [
     title: 'Zenzac',
     description: 'A distraction and relaxation tool for children\'s behavioural patterns.',
     moreInfo: 'For my son, Zac (aka ZenZac), and Mum and Dad :). A tool that grew bigger with features added hourly. Includes Nutrition, Fidget Spinner, Health/Wellness, Fun Activities, Behavioural Tracking, Now and Next, Calming Techniques, Rewards, Jokes, Wac-A-Zac Game, Make Fart sounds, App download spoof. A hit with care workers and parents for calming attention issues.',
-    imageUrl: 'https://picsum.photos/seed/zenzactool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'kids wellness',
     tags: ['Web App', 'Kids', 'Wellness', 'Tool', 'Netlify', 'Personal', 'Gamification'],
     liveUrl: 'https://zenzac.netlify.app/',
@@ -192,7 +203,7 @@ export const allTheProjects: Project[] = [
   {
     title: 'AppsGeyser',
     description: 'Platform for creating Android apps without coding.',
-    imageUrl: 'https://picsum.photos/seed/appsgeysertool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'app builder android',
     tags: ['App Builder', 'No-Code', 'Android', 'Mobile', 'Platform'],
     liveUrl: 'https://appsgeyser.com',
@@ -202,7 +213,7 @@ export const allTheProjects: Project[] = [
   {
     title: 'Copilot',
     description: 'An AI companion for coding and everyday tasks.',
-    imageUrl: 'https://picsum.photos/seed/copilottool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai coding',
     tags: ['AI', 'Coding', 'Assistant', 'Productivity', 'Microsoft'],
     liveUrl: 'https://copilot.microsoft.com/',
@@ -212,7 +223,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'CopyCoder.ai',
     description: 'AI tool for generating code snippets.',
-    imageUrl: 'https://picsum.photos/seed/copycodertool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai code',
     tags: ['AI', 'Code Generation', 'Developer Tool', 'Programming'],
     liveUrl: 'https://copycoder.ai',
@@ -222,7 +233,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Dribbble',
     description: 'Community for designers to showcase work.',
-    imageUrl: 'https://picsum.photos/seed/dribbbletool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'design community',
     tags: ['Design', 'Portfolio', 'Inspiration', 'Community', 'UI/UX'],
     liveUrl: 'https://dribbble.com',
@@ -232,7 +243,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'ElevenLabs',
     description: 'AI voice synthesis and text-to-speech.',
-    imageUrl: 'https://picsum.photos/seed/elevenlabstool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai voice',
     tags: ['AI', 'Voice Synthesis', 'TTS', 'Audio', 'API'],
     liveUrl: 'https://elevenlabs.io',
@@ -242,7 +253,7 @@ export const allTheProjects: Project[] = [
   {
     title: 'Firebase',
     description: 'Firebase is a Backend-as-a-Service (BaaS) platform developed by Google, offering a wide range of tools and services for building and managing mobile and web apps.',
-    imageUrl: 'https://picsum.photos/seed/firebasetool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'backend database',
     tags: ['Backend', 'BaaS', 'Google', 'Database', 'Cloud', 'Hosting', 'Auth'],
     liveUrl: 'https://firebase.google.com/',
@@ -252,7 +263,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Gencraft',
     description: 'AI tool for generating creative content.',
-    imageUrl: 'https://picsum.photos/seed/gencrafttool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai creative',
     tags: ['AI', 'Creative Tool', 'Content Generation', 'Art', 'Images'],
     liveUrl: 'https://gencraft.com',
@@ -262,7 +273,7 @@ export const allTheProjects: Project[] = [
   {
     title: 'GitHub',
     description: 'Platform for version control and collaboration.',
-    imageUrl: 'https://picsum.photos/seed/githubtool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'version control collaboration',
     tags: ['Development', 'Version Control', 'Collaboration', 'Code', 'Open Source'],
     liveUrl: 'https://github.com',
@@ -272,7 +283,7 @@ export const allTheProjects: Project[] = [
   {
     title: 'Google AI Studio',
     description: 'A tool to help users create generative AI applications.',
-    imageUrl: 'https://picsum.photos/seed/googleaistudio/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai generative',
     tags: ['AI', 'Generative AI', 'Development', 'Tool', 'Google', 'Machine Learning'],
     liveUrl: 'https://aistudio.google.com/',
@@ -282,7 +293,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Hedra',
     description: 'AI tool, likely for visual or creative generation.',
-    imageUrl: 'https://picsum.photos/seed/hedratool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai visual',
     tags: ['AI', 'Creative Tool', 'Visuals', 'Video', 'Generation'],
     liveUrl: 'https://www.hedra.com',
@@ -293,7 +304,7 @@ export const allTheProjects: Project[] = [
     title: 'Lucide Icons',
     description: 'Beautiful & consistent open-source icon toolkit.',
     moreInfo: 'Lucide is an open-source icon library offering over 1000 simply designed, pixel-perfect icons for various projects. Maintained by the community.',
-    imageUrl: 'https://picsum.photos/seed/lucideicons/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'icons toolkit',
     tags: ['Icons', 'UI', 'Development', 'Toolkit', 'Open Source', 'SVG', 'Design'],
     liveUrl: 'https://lucide.dev/icons/',
@@ -303,7 +314,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Mureka.ai',
     description: 'AI platform for various applications.',
-    imageUrl: 'https://picsum.photos/seed/murekatool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai platform',
     tags: ['AI', 'Platform', 'Machine Learning', 'Automation'],
     liveUrl: 'https://www.mureka.ai',
@@ -313,7 +324,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Netlify',
     description: 'Platform for building and deploying web projects.',
-    imageUrl: 'https://picsum.photos/seed/netlifytool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'hosting deployment',
     tags: ['Hosting', 'Deployment', 'Web Development', 'Platform', 'CI/CD', 'Serverless'],
     liveUrl: 'https://app.netlify.com',
@@ -323,7 +334,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Suno',
     description: 'AI music generation tool.',
-    imageUrl: 'https://picsum.photos/seed/sunotool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'ai music',
     tags: ['AI', 'Music', 'Audio Generation', 'Creative', 'Sound'],
     liveUrl: 'https://suno.com',
@@ -333,7 +344,7 @@ export const allTheProjects: Project[] = [
    {
     title: 'Unsplash',
     description: 'High-quality, free-to-use photos.',
-    imageUrl: 'https://picsum.photos/seed/unsplashtool/600/400',
+    imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'photos images',
     tags: ['Photography', 'Images', 'Stock Photos', 'Resource', 'Free'],
     liveUrl: 'https://unsplash.com',
@@ -347,13 +358,8 @@ export const allTheProjects: Project[] = [
 const sortByTitle = (a: Project, b: Project) => a.title.localeCompare(b.title);
 
 // Filter projects by type, sort alphabetically by title
-// Note: 'projects' was previously filtering for 'app', now we use 'feature' for the showcase
 export const features = allTheProjects.filter(project => project.type === 'feature').sort(sortByTitle);
 export const usefulTools = allTheProjects.filter(project => project.type === 'tool').sort(sortByTitle);
-
-// If you still need 'projects' for something else, define it, otherwise it can be removed.
-// For now, assuming 'features' is the correct list for the "Features" section.
-// export const projects = allTheProjects.filter(project => project.type === 'app').sort(sortByTitle);
 
 // Deprecated 'apps', use 'features'
 // export const apps = allTheProjects.filter(project => project.type === 'app').sort(sortByTitle);
