@@ -166,17 +166,6 @@ export const allTheProjects: Project[] = [
     icon: Sun
   },
   {
-    title: 'HelioHeggie-manual',
-    description: 'This was first attemp but only with Manual Settings',
-    moreInfo: 'This application is designed to monitor and optimize solar energy usage. It integrates real-time weather data to provide accurate energy production forecasts and offers users personalized energy usage advisories to maximize efficiency and savings.',
-    imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'solar energy',
-    tags: ['Web App', 'Energy', 'Solar', 'API', 'Optimisation', 'Netlify'],
-    liveUrl: 'https://helioheggie.netlify.app/',
- type: 'feature', // This is a feature, not filtered to play area
-    icon: Sun,
-  },
-  {
     title: 'Spring Health Hub',
     description: 'AI-enhanced transformation of a PowerPoint presentation.',
     moreInfo: 'An attempt to use a work PowerPoint document and enhance it using AI. An early project. The subject was "Spring Health and Energy Resource Hub," a learning experience.',
