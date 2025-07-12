@@ -28,6 +28,7 @@ import {
   SunMoon,
   MapPin,
   Gem,
+  Rocket, // Added for Space Game
 } from 'lucide-react'
 
 // Define project data based on the blueprint
@@ -111,6 +112,17 @@ export const allTheProjects: Project[] = [
     icon: Gem,
   },
   {
+    title: 'HEGGIE:Space Game',
+    description: 'Browser-based sci-fi game with economy, combat, and financial management.',
+    moreInfo: 'HEGGIE:Space Game is a browser-based sci-fi game where you explore the galaxy, face pirate threats, run business, create an economy, gamble, have a career, mini-games, and manage financial tools like banking, Stocks & shares,loans and insurance. Difficulty ranges from beginner-friendly to permadeath Hardcore mode, and players can test luck or strategy in varied gambling options while keeping their assets protected through smart financial planning',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'space game',
+    tags: ['Game', 'Sci-Fi', 'Economy', 'Strategy', 'Netlify'],
+    liveUrl: 'https://heggiegame.netlify.app/captain',
+    type: 'feature',
+    icon: Rocket,
+  },
+  {
     title: 'HegGeo',
     description: 'Geo Location Tool, Drop a Geo and Send, Journey time Tracker and Alarm.',
     moreInfo: 'A tool for managing and sharing geo-locations, tracking journey times, and setting location-based alarms. Users can drop a pin on a map, send their location, track travel progress, and set alarms based on arrival or proximity to a destination.',
@@ -150,7 +162,7 @@ export const allTheProjects: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'solar battery smart',
     tags: ['Web App', 'Energy', 'Solar', 'Battery', 'AI', 'Optimisation', 'Netlify', 'Smart Home'],
-    liveUrl: 'https://heliosaj.netlify.app/',
+    liveUrl: 'https://helioheggiex.netlify.app/',
     type: 'feature',
     icon: SunMoon,
   },
@@ -164,6 +176,17 @@ export const allTheProjects: Project[] = [
     liveUrl: 'https://helioheggie.netlify.app/',
     type: 'feature',
     icon: Sun
+  },
+  {
+    title: 'HelioHeggie-manual',
+    description: 'This was first attempt but only with Manual Settings',
+    moreInfo: 'This was the first version of the solar and battery tool, focusing on manual controls and basic data display without the advanced AI and automation features of the current version. It served as a foundational project to understand the core requirements.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'solar battery manual',
+    tags: ['Web App', 'Energy', 'Solar', 'Manual', 'Prototype', 'Netlify'],
+    liveUrl: 'https://helioheggie.netlify.app/',
+    type: 'feature',
+    icon: Sun,
   },
   {
     title: 'Spring Health Hub',
