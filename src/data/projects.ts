@@ -162,7 +162,7 @@ export const allTheProjects: Project[] = [
     imageUrl: 'https://placehold.co/600x400.png',
     imageHint: 'solar battery smart',
     tags: ['Web App', 'Energy', 'Solar', 'Battery', 'AI', 'Optimisation', 'Netlify', 'Smart Home'],
-    liveUrl: 'https://helioheggiex.netlify.app/',
+    liveUrl: 'https://heliosaj.netlify.app/',
     type: 'feature',
     icon: SunMoon,
   },
