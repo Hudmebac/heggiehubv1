@@ -57,17 +57,6 @@ export const allTheProjects: Project[] = [
     icon: FlaskConical,
   },
   {
-    title: 'CME-Duck',
-    description: 'A bit of fun - the world of the CME Duck as he navigates the complexities of modern technology, one quack at a time.',
-    moreInfo: 'This project is a lighthearted exploration featuring the CME Duck. Follow his adventures and misadventures in the tech world. Purely for entertainment and a bit of quacky humor.',
-    imageUrl: 'https://placehold.co/600x400.png',
-    imageHint: 'duck tech',
-    tags: ['Web App', 'Fun', 'Humor', 'Netlify', 'Story'],
-    liveUrl: 'https://cmeduck.netlify.app/',
-    type: 'feature',
-    icon: Bird, 
-  },
-  {
     title: 'Daily Stand Up Quote',
     description: 'A web application designed to display random quotes specifically related to Tech, featuring a simple interface and a button to generate new quotes.',
     moreInfo: `Simple little app created experimenting again with new ideas\nCore Function: It's almost certainly a quote generator web application.\nContent Focus: Quote displayer. This isn't a general quote site; it's focused on sayings from this particular genre (Tech).\nUser Interaction: The page displays one quote at a time. Users can interact with it via a button (Next) to load a new, randomly selected quote from its database.\nInterface: Expect a simple, minimalist design. The focus will be on clearly presenting the quote text and affirmation . \nPurpose: It  serves as a personal project, for more learning\nTechnology: Being hosted on netlify.app, it's built using front-end web technologies (HTML, CSS, JavaScript) and deployed via the Netlify platform.`,
