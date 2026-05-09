@@ -1,4 +1,3 @@
-
 import type { Project } from '@/types/project';
 import { 
   ChefHat,
@@ -209,6 +208,17 @@ export const allTheProjects: Project[] = [
     liveUrl: 'https://zenzac.netlify.app/',
     type: 'feature',
     icon: Smile, 
+  },
+  {
+    title: 'Helios UK',
+    description: 'A platform like Home Energy Intelligence for UK homeowners solving noise, bias, and fragmented information in the energy market.',
+    moreInfo: 'A platform like Home Energy Intelligence for UK homeowners would aim to solve the biggest problem in the UK home‑energy market: noise, bias, and fragmented information. The system cuts through marketing claims, provides truth‑table‑style comparisons, offers transparent supplier indexes, gives property‑specific recommendations, and includes 2026 roadmaps for solar, batteries, EV charging, and tariffs. This aligns with the direction of the UK home‑energy ecosystem as documented in current sources.',
+    imageUrl: 'https://placehold.co/600x400.png',
+    imageHint: 'uk home energy ecosystem',
+    tags: ['AI', 'Solar', 'Battery', 'EV Charger', 'Web App'],
+    liveUrl: 'https://helios-uk.netlify.app/',
+    type: 'feature',
+    icon: Sun,
   },
   
   // Useful Tools
